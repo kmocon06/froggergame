@@ -1,28 +1,39 @@
 //Frogger Game
 //First create a character who is able to move in all directions 
 //(upwards, left, right, downwards)
+
+
+
 // class Player {
 // 	constructor(level, score)
 // }
 
 
 const froggerGame = {
+	level: 1,
+	score:0,
 	upPressed: false,
 	downPressed: false,
 	leftPressed: false,
 	rightPressed: false,
-	moveUp() {
-
-	},
-	moveDown() {
-
-	},
-	moveLeft() {
-
-	},
-	moveRight() {
-
-	}
+	moveCharacter() {
+		const position = $('#frog').position();
+		switch(event.which) {
+	 		case 87: //up
+	 			$('#frog').css('top', position.top - 30 + 'px');
+	 			froggerGame.score += 10;
+	 			break;
+	 		case 83: //down
+	 			$('#frog').css('top', position.top + 30 + 'px');
+	 			break;
+	 		case 65: //left
+	 			$('#frog').css('left', position.left - 30 + 'px');
+	 			break;
+	 		case 68: //right
+	 			$('#frog').css('left', position.left + 30 + 'px');
+	 			break;
+	 }
+	}	
 	// keyDownHandler(event) {
 	// 	if(event.keyCode === 87) {
  //        	upPressed = true;
@@ -62,34 +73,24 @@ console.log(froggerGame.upPressed);
 
 document.addEventListener('keydown', function(event) {
 
-    console.log(event.which);
-    console.log(event.key);
-	// if(event.which === 87) {
- //        	froggerGame.upPressed = true;
- //    	} else if(event.which === 83) {
- //        	froggerGame.downPressed = true;
- //    	} else if(event.which === 65) {
- //    		froggerGame.leftPressed = true;
- //    		$('#frog').css('margin-right', '50px');
- //    	} else if(event.which === 68) {
- //    		$('#frog').css('margin-left', '10px');
- //    		froggerGame.rightPressed = true;
- //    	}
-	 const position = $('#frog').position();
-	 switch(event.which) {
-	 	case 87: //up
-	 		$('#frog').css('top', position.top - 10 + 'px');
-	 		break;
-	 	case 83: //down
-	 		$('#frog').css('top', position.top + 10 + 'px');
-	 		break;
-	 	case 65: //left
-	 		$('#frog').css('left', position.left - 10 + 'px');
-	 		break;
-	 	case 68: //right
-	 		$('#frog').css('left', position.left + 10 + 'px');
-	 		break;
-	 }
+	// const position = $('#frog').position();
+	// switch(event.which) {
+	//  	case 87: //up
+	//  		$('#frog').css('top', position.top - 30 + 'px');
+	//  		froggerGame.score += 10;
+	//  		break;
+	//  	case 83: //down
+	//  		$('#frog').css('top', position.top + 30 + 'px');
+	//  		break;
+	//  	case 65: //left
+	//  		$('#frog').css('left', position.left - 30 + 'px');
+	//  		break;
+	//  	case 68: //right
+	//  		$('#frog').css('left', position.left + 30 + 'px');
+	//  		break;
+	//  }
+	froggerGame.moveCharacter();
+	 console.log(froggerGame.score)
 });
 
 
