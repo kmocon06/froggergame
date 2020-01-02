@@ -1,0 +1,10 @@
+body {
+	background-color: black;
+}
+
+#frog {
+	width: 70px;
+	position: fixed;
+	bottom: 0px;
+	left: 50%;
+}
