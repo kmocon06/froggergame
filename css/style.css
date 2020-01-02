@@ -3,8 +3,8 @@ body {
 }
 
 #frog {
+	position: absolute;
 	width: 70px;
-	position: fixed;
 	bottom: 0px;
 	left: 50%;
 }
