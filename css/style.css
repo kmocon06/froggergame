@@ -13,17 +13,28 @@ body {
 
 }
 
+div.first_green_cars {
+	bottom: 0px;
+	position: relative;
+}
+
 #green_car {
 	width: 40px;
 	height: 40px;
-	bottom: 90px;
+	top: 650px;
 	position: absolute;
+}
+
+div.first_red_cars {
+	width: 40px;
+	height: 40px;
+	position: relative;
 }
 
 #red_car {
 	width: 40px;
 	height: 40px;
-	bottom: 30px;
+	top: 710px;
 	position: absolute;
 }
 
