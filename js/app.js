@@ -24,6 +24,7 @@ const froggerGame = {
 
 		const position = $('#frog').position();
 		console.log(position)
+		console.log(position.top)
 		//move the character up, down, left, and right
 		//by using the keyCodes for the keyboard
 		const height = $(window).innerHeight();
@@ -35,7 +36,10 @@ const froggerGame = {
 	 		case 87: //up - keycode 87 === W
 	 			// if($('#frog').position - 30 === 896) {
 	 			// }
-	 			$('#frog').css('top', position.top - 30 + 'px');
+	 			if(position.top < 731.765625 && position top > -18.234375) {
+	 				$('#frog').css('top', position.top - 30 + 'px');
+	 			}
+	 			
 	 			this.score += 10;
 	 			this.printScore();
 	 			break;
@@ -44,7 +48,11 @@ const froggerGame = {
 	 			// if frog is already at the bottom
 	 				// do nothing
 	 			// else 
+	 			if(position.top < 732.765625 && position.top > -48.234375) {
+	 			// 	$('#frog').css('top', position.top === 731.765625);
+	 			// } else {
 		 			$('#frog').css('top', position.top + 30 + 'px');
+	 			}
 
 	 			break;
 
