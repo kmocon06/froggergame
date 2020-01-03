@@ -36,10 +36,10 @@ const froggerGame = {
 	 		case 87: //up - keycode 87 === W
 	 			// if($('#frog').position - 30 === 896) {
 	 			// }
-	 			if(position.top < 731.765625 && position top > -18.234375) {
+	 			if(position.top < 762.765625 && position.top > -18.234375) {
 	 				$('#frog').css('top', position.top - 30 + 'px');
 	 			}
-	 			
+
 	 			this.score += 10;
 	 			this.printScore();
 	 			break;
@@ -58,11 +58,17 @@ const froggerGame = {
 
 
 	 		case 65: //left - keyCode 65 === A
-	 			$('#frog').css('left', position.left - 30 + 'px');
+	 			if(position.left > 20 && position.left < 1170) {
+	 				$('#frog').css('left', position.left - 30 + 'px');
+	 			}
+
 	 			break;
 
 	 		case 68: //right - keyCode 68 === D
-	 			$('#frog').css('left', position.left + 30 + 'px');
+	 			if(position.left > -6 && position.left < 1105) {
+	 				$('#frog').css('left', position.left + 30 + 'px');
+	 			}
+
 	 			break;
 	 	}
 
