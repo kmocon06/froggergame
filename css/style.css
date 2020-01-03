@@ -1,5 +1,6 @@
 body {
 	background-color: black;
+	color: white;
 }
 
 #frog {
@@ -8,3 +9,13 @@ body {
 	bottom: 0px;
 	left: 50%;
 }
+
+#level {
+	color: white;
+}
+
+
+#score {
+	color: white;
+}
+
