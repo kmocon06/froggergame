@@ -7,6 +7,8 @@
 
 
 
+
+
 // class Player {
 // 	constructor(level, score)
 // }
@@ -19,9 +21,20 @@ const froggerGame = {
 	downPressed: false,
 	leftPressed: false,
 	rightPressed: false,
+	startGame() {
+		this.moveRedCars();
+	},
+	// setTimer() {
+
+
+	// 	const timer = setInterval(() =>{
+
+	// 	}, 2500)
+	// },
 	moveCharacter(keyCode) {
 
 		const position = $('#frog').position();
+		console.log(position);
 		//move the character up, down, left, and right
 		//by using the keyCodes for the keyboard
 		const height = $(window).innerHeight();
@@ -65,7 +78,17 @@ const froggerGame = {
 	 			break;
 	 	}
 
-
+	 // 	if($('#frog').position().top === -18.234375) {
+		// 	this.levelCompleted();
+		// }
+	},
+	moveRedCars() {
+		$('#red_car').css({left: 0});
+		$('#red_car').animate({ left: '1000px' }, 3000, 'linear', () => {
+			this.moveRedCars();
+		});
+	},
+	levelCompleted() {
 
 	},
 	printScore() {
@@ -74,6 +97,10 @@ const froggerGame = {
 			$('#score').text(this.score);
 		}
 	}	
+}
+
+froggerGame.startGame();
+
 	// keyDownHandler(event) {
 	// 	if(event.keyCode === 87) {
  //        	upPressed = true;
@@ -100,9 +127,6 @@ const froggerGame = {
  //    		rightPressed = false;
  //    	}
 	// },
-}
-
-
 
 
 

@@ -13,7 +13,21 @@ body {
 
 }
 
-div.first_green_cars {
+#bus {
+	width: 90px;
+	height: 40px;
+	top: 500px;
+	position: absolute;
+}
+
+#green_car2 {
+	width: 40px;
+	height: 40px;
+	top: 650px;
+	position: absolute;
+}
+
+div.second_row_cars {
 	bottom: 0px;
 	position: relative;
 }
@@ -25,7 +39,7 @@ div.first_green_cars {
 	position: absolute;
 }
 
-div.first_red_cars {
+div.first_row_cars {
 	width: 40px;
 	height: 40px;
 	position: relative;
