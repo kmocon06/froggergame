@@ -84,7 +84,12 @@ const froggerGame = {
 	},
 	moveRedCars() {
 		$('#red_car').css({left: 0});
-		$('#red_car').animate({ left: '1000px' }, 3000, 'linear', () => {
+		$('#red_car').animate({ left: '1000px' }, 5000, 'linear', () => {
+			this.moveRedCars();
+		});
+
+		$('#red_car2').css({left: '100px'});
+		$('#red_car2').animate({ left: '1000px' }, 4000, 'linear', () => {
 			this.moveRedCars();
 		});
 	},
