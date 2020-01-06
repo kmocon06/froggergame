@@ -26,6 +26,7 @@ const froggerGame = {
 		this.moveFirstGreenCars();
 		this.moveThirdRowCars();
 		this.moveFourthRowCars();
+		this.moveBusRow();
 	},
 	// setTimer() {
 
@@ -127,6 +128,17 @@ const froggerGame = {
 		$('#red_car4').css({right: 100});
 		$('#red_car4').animate({ right: '1000px' }, 5000, 'linear', () => {
 			this.moveFourthRowCars();
+		});
+	},
+	moveBusRow() {
+		$('#bus').css({right: 0});
+		$('#bus').animate({ right: '1000px' }, 9000, 'linear', () => {
+			this.moveBusRow();
+		});
+
+		$('#bus2').css({right: 100});
+		$('#bus2').animate({ right: '1000px' }, 5000, 'linear', () => {
+			this.moveBusRow();
 		});
 	},
 	levelCompleted() {

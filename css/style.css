@@ -14,7 +14,14 @@ body {
 }
 
 #bus {
-	width: 90px;
+	width: 110px;
+	height: 40px;
+	top: 500px;
+	position: absolute;
+}
+
+#bus2 {
+	width: 110px;
 	height: 40px;
 	top: 500px;
 	position: absolute;
