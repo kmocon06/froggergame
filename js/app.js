@@ -31,6 +31,7 @@ const froggerGame = {
 		this.moveSecondRowLogs();
 		this.moveThirdRowLogs();
 		this.moveLastLogAndGator();
+		this.carCollision();
 	},
 	// setTimer() {
 
@@ -90,6 +91,7 @@ const froggerGame = {
 		// 	this.levelCompleted();
 		// }
 	},
+
 	moveFirstRedCars() {
 		$('#red_car').css({left: 0});
 		$('#red_car').animate({ left: '1000px' }, 7000, 'linear', () => {
@@ -189,6 +191,24 @@ const froggerGame = {
 			this.moveLastLogAndGator();
 		});
 	},
+	carCollision() {
+		//if any cars or buses collide with the frog, then the frog has lost a life
+
+		const car1 = $('#red_car')[0]; //height = 50 //width = 40
+		const car2 = $('#red_car2')[0] //height = 50 //width = 40
+		const frog = $('#frog')[0].width //height = 58 //width = 70
+		console.log(frog);
+
+
+
+
+	},
+	frogDies() {
+		const $div = $('<div></div>');
+		$div.id = $('frog_dies');
+		$div.append('<img id="dead_frog" src="SkullPixelart.png" />');
+		$(document.body).append($div);
+	},
 	levelCompleted() {
 
 	},
@@ -199,6 +219,7 @@ const froggerGame = {
 		}
 	}	
 }
+
 
 froggerGame.startGame();
 

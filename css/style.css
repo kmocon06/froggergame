@@ -72,42 +72,42 @@ body {
 
 #bus {
 	width: 110px;
-	height: 40px;
-	top: 500px;
+	height: 58px;
+	top: 480px;
 	position: absolute;
 }
 
 #bus2 {
 	width: 110px;
-	height: 40px;
-	top: 500px;
+	height: 58px;
+	top: 480px;
 	position: absolute;
 }
 
 #red_car4 {
-	width: 40px;
-	height: 50px;
+	width: 70px;
+	height: 58px;
 	top: 550px;
 	position: absolute;
 }
 
 #red_car3 {
-	width: 40px;
-	height: 50px;
+	width: 70px;
+	height: 58px;
 	top: 550px;
 	position: absolute;
 }
 
 #green_car4 {
-	width: 40px;
-	height: 50px;
+	width: 70px;
+	height: 58px;
 	top: 600px;
 	position: absolute;
 }
 
 #green_car3 {
-	width: 40px;
-	height: 50px;
+	width: 70px;
+	height: 58px;
 	top: 600px;
 	position: absolute;
 }
@@ -118,15 +118,15 @@ div.second_row_cars {
 }
 
 #green_car {
-	width: 40px;
-	height: 50px;
+	width: 70px;
+	height: 58px;
 	top: 650px;
 	position: absolute;
 }
 
 #green_car2 {
-	width: 40px;
-	height: 50px;
+	width: 70px;
+	height: 58px;
 	top: 650px;
 	position: absolute;
 }
@@ -138,15 +138,15 @@ div.first_row_cars {
 }
 
 #red_car {
-	width: 40px;
-	height: 50px;
+	width: 70px;
+	height: 58px;
 	top: 710px;
 	position: absolute;
 }
 
 #red_car2 {
-	width: 40px;
-	height: 50px;
+	width: 70px;
+	height: 58px;
 	top: 710px;
 	position: absolute;
 }
