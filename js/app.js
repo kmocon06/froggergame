@@ -28,6 +28,8 @@ const froggerGame = {
 		this.moveFourthRowCars();
 		this.moveBusRow();
 		this.moveFirstRowLogs();
+		this.moveSecondRowLogs();
+		this.moveLastLogAndGator();
 	},
 	// setTimer() {
 
@@ -48,7 +50,7 @@ const froggerGame = {
 		switch(keyCode) {
 	 		case 87: //up - keycode 87 === W
 	 			if(position.top < 762.765625 && position.top > -18.234375) {
-	 				$('#frog').css('top', position.top - 30 + 'px');
+	 				$('#frog').css('top', position.top - 50 + 'px');
 	 			}
 
 	 			this.score += 10;
@@ -62,7 +64,7 @@ const froggerGame = {
 	 			if(position.top < 732.765625 && position.top > -48.234375) {
 	 			// 	$('#frog').css('top', position.top === 731.765625);
 	 			// } else {
-		 			$('#frog').css('top', position.top + 30 + 'px');
+		 			$('#frog').css('top', position.top + 50 + 'px');
 	 			}
 
 	 			break;
@@ -70,14 +72,14 @@ const froggerGame = {
 
 	 		case 65: //left - keyCode 65 === A
 	 			if(position.left > 20 && position.left < 1170) {
-	 				$('#frog').css('left', position.left - 30 + 'px');
+	 				$('#frog').css('left', position.left - 50 + 'px');
 	 			}
 
 	 			break;
 
 	 		case 68: //right - keyCode 68 === D
 	 			if(position.left > -6 && position.left < 1105) {
-	 				$('#frog').css('left', position.left + 30 + 'px');
+	 				$('#frog').css('left', position.left + 50 + 'px');
 	 			}
 
 	 			break;
@@ -151,6 +153,28 @@ const froggerGame = {
 		$('#log2').css({left: 100});
 		$('#log2').animate({ left: '1000px' }, 5000, 'linear', () => {
 			this.moveFirstRowLogs();
+		});
+	},
+	moveSecondRowLogs() {
+		$('#log3').css({right: 0});
+		$('#log3').animate({ right: '1000px' }, 9000, 'linear', () => {
+			this.moveSecondRowLogs();
+		});
+
+		$('#log4').css({right: 100});
+		$('#log4').animate({ right: '1000px' }, 5000, 'linear', () => {
+			this.moveSecondRowLogs();
+		});
+	},
+	moveLastLogAndGator() {
+		$('#log5').css({left: 0});
+		$('#log5').animate({ left: '1000px' }, 9000, 'linear', () => {
+			this.moveLastLogAndGator();
+		});
+
+		$('#gator').css({left: 100});
+		$('#gator').animate({ left: '1000px' }, 5000, 'linear', () => {
+			this.moveLastLogAndGator();
 		});
 	},
 	levelCompleted() {

@@ -13,6 +13,34 @@ body {
 
 }
 
+#gator {
+	width: 50px;
+	height: 40px;
+	top: 50px;
+	position: absolute;
+}
+
+#log5 {
+	width: 290px;
+	height: 40px;
+	top: 50px;
+	position: absolute;
+}
+
+#log4 {
+	width: 100px;
+	height: 40px;
+	top: 270px;
+	position: absolute;
+}
+
+#log3 {
+	width: 100px;
+	height: 40px;
+	top: 270px;
+	position: absolute;
+}
+
 #log2 {
 	width: 100px;
 	height: 40px;
