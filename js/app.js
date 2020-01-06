@@ -24,6 +24,7 @@ const froggerGame = {
 	startGame() {
 		this.moveFirstRedCars();
 		this.moveFirstGreenCars();
+		this.moveThirdRowCars();
 	},
 	// setTimer() {
 
@@ -95,14 +96,25 @@ const froggerGame = {
 		});
 	},
 	moveFirstGreenCars() {
-		$('#green_car').css({right: 500});
+		$('#green_car').css({right: 0});
 		$('#green_car').animate({ right: '1000px' }, 5000, 'linear', () => {
 			this.moveFirstGreenCars();
 		});
 
-		$('#green_car2').css({right: '70px'});
+		$('#green_car2').css({right: '50px'});
 		$('#green_car2').animate({ right: '1000px' }, 4000, 'linear', () => {
 			this.moveFirstGreenCars();
+		});
+	},
+	moveThirdRowCars() {
+		$('#green_car3').css({left: 0});
+		$('#green_car3').animate({ left: '1000px' }, 5000, 'linear', () => {
+			this.moveThirdRowCars();
+		});
+
+		$('#green_car4').css({left: 100});
+		$('#green_car4').animate({ left: '1000px' }, 3000, 'linear', () => {
+			this.moveThirdRowCars();
 		});
 	},
 	levelCompleted() {
