@@ -20,6 +20,20 @@ body {
 	position: absolute;
 }
 
+#red_car4 {
+	width: 40px;
+	height: 50px;
+	top: 550px;
+	position: absolute;
+}
+
+#red_car3 {
+	width: 40px;
+	height: 50px;
+	top: 550px;
+	position: absolute;
+}
+
 #green_car4 {
 	width: 40px;
 	height: 50px;

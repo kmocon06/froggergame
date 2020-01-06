@@ -25,6 +25,7 @@ const froggerGame = {
 		this.moveFirstRedCars();
 		this.moveFirstGreenCars();
 		this.moveThirdRowCars();
+		this.moveFourthRowCars();
 	},
 	// setTimer() {
 
@@ -86,12 +87,12 @@ const froggerGame = {
 	},
 	moveFirstRedCars() {
 		$('#red_car').css({left: 0});
-		$('#red_car').animate({ left: '1000px' }, 5000, 'linear', () => {
+		$('#red_car').animate({ left: '1000px' }, 7000, 'linear', () => {
 			this.moveFirstRedCars();
 		});
 
 		$('#red_car2').css({left: '70px'});
-		$('#red_car2').animate({ left: '1000px' }, 4000, 'linear', () => {
+		$('#red_car2').animate({ left: '1000px' }, 10000, 'linear', () => {
 			this.moveFirstRedCars();
 		});
 	},
@@ -102,19 +103,30 @@ const froggerGame = {
 		});
 
 		$('#green_car2').css({right: '50px'});
-		$('#green_car2').animate({ right: '1000px' }, 4000, 'linear', () => {
+		$('#green_car2').animate({ right: '1000px' }, 6000, 'linear', () => {
 			this.moveFirstGreenCars();
 		});
 	},
 	moveThirdRowCars() {
 		$('#green_car3').css({left: 0});
-		$('#green_car3').animate({ left: '1000px' }, 5000, 'linear', () => {
+		$('#green_car3').animate({ left: '1000px' }, 9000, 'linear', () => {
 			this.moveThirdRowCars();
 		});
 
 		$('#green_car4').css({left: 100});
-		$('#green_car4').animate({ left: '1000px' }, 3000, 'linear', () => {
+		$('#green_car4').animate({ left: '1000px' }, 5000, 'linear', () => {
 			this.moveThirdRowCars();
+		});
+	},
+	moveFourthRowCars() {
+		$('#red_car3').css({right: 0});
+		$('#red_car3').animate({ right: '1000px' }, 9000, 'linear', () => {
+			this.moveFourthRowCars();
+		});
+
+		$('#red_car4').css({right: 100});
+		$('#red_car4').animate({ right: '1000px' }, 5000, 'linear', () => {
+			this.moveFourthRowCars();
 		});
 	},
 	levelCompleted() {
@@ -122,7 +134,7 @@ const froggerGame = {
 	},
 	printScore() {
 		//print the high score of the user onto the screen 
-		if(event.which === 87) {
+		if(event.keyCode === 87) {
 			$('#score').text(this.score);
 		}
 	}	
