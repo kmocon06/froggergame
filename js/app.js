@@ -29,6 +29,7 @@ const froggerGame = {
 		this.moveBusRow();
 		this.moveFirstRowLogs();
 		this.moveSecondRowLogs();
+		this.moveThirdRowLogs();
 		this.moveLastLogAndGator();
 	},
 	// setTimer() {
@@ -166,9 +167,20 @@ const froggerGame = {
 			this.moveSecondRowLogs();
 		});
 	},
+	moveThirdRowLogs() {
+		$('#log5').css({right: 0});
+		$('#log5').animate({ right: '1000px' }, 9000, 'linear', () => {
+			this.moveThirdRowLogs();
+		});
+
+		$('#log6').css({right: 100});
+		$('#log6').animate({ right: '1000px' }, 5000, 'linear', () => {
+			this.moveThirdRowLogs();
+		});
+	},
 	moveLastLogAndGator() {
-		$('#log5').css({left: 0});
-		$('#log5').animate({ left: '1000px' }, 9000, 'linear', () => {
+		$('#log7').css({left: 0});
+		$('#log7').animate({ left: '1000px' }, 9000, 'linear', () => {
 			this.moveLastLogAndGator();
 		});
 

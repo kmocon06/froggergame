@@ -20,31 +20,45 @@ body {
 	position: absolute;
 }
 
-#log5 {
+#log7 {
 	width: 290px;
 	height: 40px;
 	top: 50px;
 	position: absolute;
 }
 
+#log6 {
+	width: 200px;
+	height: 40px;
+	top: 100px;
+	position: absolute;
+}
+
+#log5 {
+	width: 100px;
+	height: 40px;
+	top: 100px;
+	position: absolute;
+}
+
 #log4 {
 	width: 100px;
 	height: 40px;
-	top: 270px;
+	top: 150px;
 	position: absolute;
 }
 
 #log3 {
 	width: 100px;
 	height: 40px;
-	top: 270px;
+	top: 150px;
 	position: absolute;
 }
 
 #log2 {
 	width: 100px;
 	height: 40px;
-	top: 300px;
+	top: 200px;
 	position: absolute;
 }
 
@@ -52,7 +66,7 @@ body {
 #log1 {
 	width: 290px;
 	height: 40px;
-	top: 300px;
+	top: 200px;
 	position: absolute;
 }
 
