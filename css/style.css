@@ -13,6 +13,21 @@ body {
 
 }
 
+#log2 {
+	width: 100px;
+	height: 40px;
+	top: 300px;
+	position: absolute;
+}
+
+
+#log1 {
+	width: 290px;
+	height: 40px;
+	top: 300px;
+	position: absolute;
+}
+
 #bus {
 	width: 110px;
 	height: 40px;
