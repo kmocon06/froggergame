@@ -17,6 +17,7 @@
 const froggerGame = {
 	level: 1,
 	score:0,
+	lives: 3,
 	upPressed: false,
 	downPressed: false,
 	leftPressed: false,
@@ -104,12 +105,12 @@ const froggerGame = {
 
 	moveFirstRedCars() {
 		$('#red_car').css({left: 0});
-		$('#red_car').animate({ left: '1000px' }, 7000, 'linear', () => {
+		$('#red_car').animate({ left: '1000px' }, 10000, 'linear', () => {
 			this.moveFirstRedCars();
 		});
 
 		$('#red_car2').css({left: '70px'});
-		$('#red_car2').animate({ left: '1000px' }, 10000, 'linear', () => {
+		$('#red_car2').animate({ left: '1000px' }, 12000, 'linear', () => {
 			this.moveFirstRedCars();
 		});
 	},
@@ -175,7 +176,7 @@ const froggerGame = {
 		});
 
 		$('#log4').css({right: 100});
-		$('#log4').animate({ right: '1000px' }, 5000, 'linear', () => {
+		$('#log4').animate({ right: '1000px' }, 7000, 'linear', () => {
 			this.moveSecondRowLogs();
 		});
 	},
@@ -204,9 +205,14 @@ const froggerGame = {
 	carCollision() {
 		//if any cars or buses collide with the frog, then the frog has lost a life
 
-		const car1 = $('#red_car').position(); //height = 50 //width = 40
+		const car1 = $('#red_car').position();
+		 //height = 50 //width = 40
+		const car1Height = $('#red_car').height();
+		const car1Width =$('#red_car').width();
 		const car2 = $('#red_car2').position(); //height = 50 //width = 40
-		const frogger = this.frog.position(); //height = 58 //width = 70
+		const frog = this.frog.position(); //height = 58 //width = 70
+		const frogHeight = this.frog.height();
+		const frogWidth = this.frog.width();
 		// frog.top = 710;
 		// frog.left += 20;
 
@@ -214,17 +220,18 @@ const froggerGame = {
 		// RED CAR >>> {top: 710, left: 0}
 		//     FROG >> {top: 711.765625, left: -5}
 
-		// const car2Top = car2.top
-		// const car2Bottom = car2.top + 58
+		const car2Top = car2.top
+		const car2Bottom = car2.top + 58
 
-		// console.log(car2.left);
-		console.log(this.frog.width);
+		console.log(car1);
 
-		
+		if (car1.left < frog.left + frogWidth &&
+   			car1.left + car1Width > frog.left &&
+   			car1.top < frog.top + frogHeight &&
+   			car1.top + car1Height > frog.top) {
+    	// collision detected!
+    		this.frogDies();
 
-
-		if(car2.left < frog.right) {
-			this.frogDies();
 		}
 
 		console.log('RED CAR >>> ',car2);
@@ -244,7 +251,15 @@ const froggerGame = {
 		const $div = $('<div></div>');
 		$div.id = $('frog_dies');
 		$div.append('<img id="dead_frog" src="SkullPixelart.png" />');
+		$div.css({display: 'inline-block'});
 		$(document.body).append($div);
+
+		if(this.lives === 0) {
+			this.gameOver();
+		}
+	},
+	frogReset() {
+
 	},
 	levelCompleted() {
 
@@ -254,6 +269,9 @@ const froggerGame = {
 		if(event.keyCode === 87) {
 			$('#score').text(this.score);
 		}
+	},
+	gameOver() {
+
 	}	
 }
 
