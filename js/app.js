@@ -21,11 +21,20 @@ class Cars {
 	}
 }
 
+class Player {
+	constructor(player1, player2) {
+		this.player1 = player1;
+		this.player2 = player2;
+	}
+}
+
 
 const froggerGame = {
 	level: 1,
 	score:0,
-	lives: 3,
+	rounds: 0,
+	player1Lives: 3,
+	player2Lives: 3,
 	upPressed: false,
 	downPressed: false,
 	leftPressed: false,
@@ -36,6 +45,7 @@ const froggerGame = {
 	frog: $('#frog'),
 	frogOnLog: false,
 	startGame() {
+
 
 		this.moveFirstRedCars();
 		this.moveFirstGreenCars();
@@ -212,17 +222,34 @@ const froggerGame = {
 
 
 		// const redCar1 = new Cars($('#red_car'), 'absolute', 70, 58);
-		console.log(redCar1);
-		const car1 = $('#red_car').position();
-		 //height = 50 //width = 40
-		const car1Height = $('#red_car').height();
-		const car1Width =$('#red_car').width();
-		const car2 = $('#red_car2').position(); //height = 50 //width = 40
-		const car2Height = $('#red_car2').height();
-		const car2Width =$('#red_car2').width();
+		// console.log(redCar1);
+		// const car1 = $('#red_car').position();
+		//  //height = 50 //width = 40
+		// const car1Height = $('#red_car').height();
+		// const car1Width =$('#red_car').width();
+		// const car2 = $('#red_car2').position(); //height = 50 //width = 40
+		// const car2Height = $('#red_car2').height();
+		// const car2Width =$('#red_car2').width();
 		const frog = this.frog.position(); //height = 58 //width = 70
 		const frogHeight = this.frog.height();
 		const frogWidth = this.frog.width();
+
+		const allCars = $('.car');
+		console.log(allCars);
+
+		for(let i = 0; i < allCars.length; i++) {
+			let currentCar = allCars[i];
+		
+			if (currentCar.x < frog.left + frogWidth &&
+   			currentCar.x + currentCar.width > frog.left &&
+   			currentCar.y < frog.top + frogHeight &&
+   			currentCar.y+ currentCar.height > frog.top) {
+    	// collision detected!
+    		this.frogDies();
+    		this.frogReset();
+
+			}
+		}
 
 		//if the first car left position is less than the frog left position plus the 
 		//frog width, and the car left position plus the car width is greater than the 
@@ -230,21 +257,21 @@ const froggerGame = {
 		//and frog height, and the car top position plus the car height is greater than the frog
 		//top
 
-		if (car1.left < frog.left + frogWidth &&
-   			car1.left + car1Width > frog.left &&
-   			car1.top < frog.top + frogHeight &&
-   			car1.top + car1Height > frog.top) {
-    	// collision detected!
-    		this.frogDies();
-    		this.frogReset();
+		// if (car1.left < frog.left + frogWidth &&
+  //  			car1.left + car1Width > frog.left &&
+  //  			car1.top < frog.top + frogHeight &&
+  //  			car1.top + car1Height > frog.top) {
+  //   	// collision detected!
+  //   		this.frogDies();
+  //   		this.frogReset();
 
-		} else if (car2.left < frog.left + frogWidth &&
-   			car2.left + car2Width > frog.left &&
-   			car2.top < frog.top + frogHeight &&
-   			car2.top + car2Height > frog.top) {
-				this.frogDies();
-				this.frogReset();
-		} 
+		// } else if (car2.left < frog.left + frogWidth &&
+  //  			car2.left + car2Width > frog.left &&
+  //  			car2.top < frog.top + frogHeight &&
+  //  			car2.top + car2Height > frog.top) {
+		// 		this.frogDies();
+		// 		this.frogReset();
+		// } 
 
 /*		else if (car2.left < frog.left + frogWidth &&
    			car2.left + car2Width > frog.left &&
