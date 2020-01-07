@@ -65,8 +65,8 @@ body {
 
 #log1 {
 	width: 290px;
-	height: 40px;
-	top: 200px;
+	height: 58px;
+	top: 220px;
 	position: absolute;
 }
 
@@ -98,14 +98,14 @@ body {
 	position: absolute;
 }
 
-#green_car4 {
+#green_car3 {
 	width: 70px;
 	height: 58px;
 	top: 600px;
 	position: absolute;
 }
 
-#green_car3 {
+#green_car2 {
 	width: 70px;
 	height: 58px;
 	top: 600px;
@@ -118,13 +118,6 @@ div.second_row_cars {
 }
 
 #green_car {
-	width: 70px;
-	height: 58px;
-	top: 650px;
-	position: absolute;
-}
-
-#green_car2 {
 	width: 70px;
 	height: 58px;
 	top: 650px;
