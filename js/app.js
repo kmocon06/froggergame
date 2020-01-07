@@ -21,7 +21,12 @@ const froggerGame = {
 	downPressed: false,
 	leftPressed: false,
 	rightPressed: false,
+	isColliding: false,
+	isColliding: false,
+	timer: 0,
+	frog: $('#frog'),
 	startGame() {
+
 		this.moveFirstRedCars();
 		this.moveFirstGreenCars();
 		this.moveThirdRowCars();
@@ -31,7 +36,12 @@ const froggerGame = {
 		this.moveSecondRowLogs();
 		this.moveThirdRowLogs();
 		this.moveLastLogAndGator();
-		this.carCollision();
+
+		this.timer = setInterval(() =>{
+			this.carCollision();
+			//console.log(this.frog.position());
+			
+		}, 2500)
 	},
 	// setTimer() {
 
@@ -42,8 +52,8 @@ const froggerGame = {
 	// },
 	moveCharacter(keyCode) {
 
-		const position = $('#frog').position();
-		console.log(position);
+		const position = this.frog.position();
+		//const position = this.frog;
 		//move the character up, down, left, and right
 		//by using the keyCodes for the keyboard
 		const height = $(window).innerHeight();
@@ -194,11 +204,38 @@ const froggerGame = {
 	carCollision() {
 		//if any cars or buses collide with the frog, then the frog has lost a life
 
-		const car1 = $('#red_car')[0]; //height = 50 //width = 40
-		const car2 = $('#red_car2')[0] //height = 50 //width = 40
-		const frog = $('#frog')[0].width //height = 58 //width = 70
-		console.log(frog);
+		const car1 = $('#red_car').position(); //height = 50 //width = 40
+		const car2 = $('#red_car2').position(); //height = 50 //width = 40
+		const frogger = this.frog.position(); //height = 58 //width = 70
+		// frog.top = 710;
+		// frog.left += 20;
 
+		// console.log(car1);
+		// RED CAR >>> {top: 710, left: 0}
+		//     FROG >> {top: 711.765625, left: -5}
+
+		// const car2Top = car2.top
+		// const car2Bottom = car2.top + 58
+
+		// console.log(car2.left);
+		console.log(this.frog.width);
+
+		
+
+
+		if(car2.left < frog.right) {
+			this.frogDies();
+		}
+
+		console.log('RED CAR >>> ',car2);
+		console.log('FROG >>',frog);
+
+
+		//if frog position is in range of (710  and 500)
+		// if(car1.left < frog.left + frog.width && car1.left + car1.width > frog.left 
+		// 	&& car1.top < frog.top + frog.height && car1.height > frog.top) {
+		// 	this.frogDies();
+		// }
 
 
 

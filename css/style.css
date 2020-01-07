@@ -148,6 +148,8 @@ div.first_row_cars {
 	width: 70px;
 	height: 58px;
 	top: 710px;
+	bottom: 0px;
+	right: -30px;
 	position: absolute;
 }
 
@@ -155,7 +157,9 @@ div.first_row_cars {
 	position: absolute;
 	width: 70px;
 	bottom: 0px;
-	left: 50%;
+	right: 0px;
+	left: 600px;
+	top: 762px;
 }
 
 #level {
