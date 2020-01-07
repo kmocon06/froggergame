@@ -14,7 +14,7 @@
 // }
 
 class Cars {
-	constructor(position, height, width) {
+	constructor(image, position, height, width) {
 		this.position = position;
 		this.height = height;
 		this.width = width;
@@ -63,7 +63,7 @@ const froggerGame = {
 	// },
 	moveCharacter(keyCode) {
 
-		const position = this.frog.position();
+		let position = this.frog.position();
 		//const position = this.frog;
 		//move the character up, down, left, and right
 		//by using the keyCodes for the keyboard
@@ -210,6 +210,9 @@ const froggerGame = {
 	carCollision() {
 		//if any cars or buses collide with the frog, then the frog has lost a life
 
+
+		// const redCar1 = new Cars($('#red_car'), 'absolute', 70, 58);
+		console.log(redCar1);
 		const car1 = $('#red_car').position();
 		 //height = 50 //width = 40
 		const car1Height = $('#red_car').height();
@@ -220,6 +223,12 @@ const froggerGame = {
 		const frog = this.frog.position(); //height = 58 //width = 70
 		const frogHeight = this.frog.height();
 		const frogWidth = this.frog.width();
+
+		//if the first car left position is less than the frog left position plus the 
+		//frog width, and the car left position plus the car width is greater than the 
+		//frog left position, and the car top position is less than the frog top position 
+		//and frog height, and the car top position plus the car height is greater than the frog
+		//top
 
 		if (car1.left < frog.left + frogWidth &&
    			car1.left + car1Width > frog.left &&
@@ -235,7 +244,15 @@ const froggerGame = {
    			car2.top + car2Height > frog.top) {
 				this.frogDies();
 				this.frogReset();
-		}
+		} 
+
+/*		else if (car2.left < frog.left + frogWidth &&
+   			car2.left + car2Width > frog.left &&
+   			car2.top < frog.top + frogHeight &&
+   			car2.top + car2Height > frog.top) {
+				this.frogDies();
+				this.frogReset();
+		}*/ 	
 
 		// console.log('RED CAR >>> ',car2);
 		// console.log('FROG >>',frog);
@@ -244,16 +261,17 @@ const froggerGame = {
 
 	},
 	frogAttachesToLog() {
-		this.frogOnLog = true;
+		//log speed = 9000 
 		const log1Position = $('#log1').position();
 		const log1Width = $('#log1').width();
 		const log1Height = $('#log1').height();
 
-		// const log1Speed = $('#log1').speed;
+		console.log($('#log1'))
 		// console.log(log1Speed);
-		const frog = this.frog.position(); //height = 58 //width = 70
+		let frog = this.frog.position(); //height = 58 //width = 70
 		const frogHeight = this.frog.height();
 		const frogWidth = this.frog.width();
+		console.log(this.frog);
 
 		// if(this.frogOnLog !== false) {
 		// 	this.frog.position().left += log1Speed;
@@ -264,8 +282,14 @@ const froggerGame = {
    			log1Position.top < frog.top + frogHeight &&
    			log1Position.top + log1Height > frog.top) {
     	// collision detected!
-    		this.frogDies();
-    		this.frogReset();
+    		this.frogOnLog = true;
+    		// this.frog.css({left: 0});
+		// 	this.frog.animate({ left: '1000px' }, 9000, 'linear', () => {
+		// });
+
+			frog.left = log1Position.left;
+			frog.top = log1Position.top;
+			this.frog.css()
 
 		}
 
