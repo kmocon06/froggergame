@@ -63,8 +63,11 @@ const froggerGame = {
 		this.moveLastLogAndGator();
 
 		this.timer = setInterval(() =>{
-			this.carCollision();
-			this.frogAttachesToLog();
+			if(this.player1Lives >= 1 || this.player2Lives >= 1) {
+				this.carCollision();
+				this.frogAttachesToLog();
+
+			}
 			//console.log(this.frog.position());
 			
 		}, 2500)
@@ -316,9 +319,6 @@ const froggerGame = {
 		// console.log('RED CAR >>> ',car2);
 		// console.log('FROG >>',frog);
 	},
-	isColliding() {
-
-	},
 	frogAttachesToLog() {
 		//log speed = 9000 
 		const log1Position = $('#log1').position();
@@ -398,12 +398,11 @@ const froggerGame = {
 		}
 	},
 	gameOver() {
-		const $h1 = $('<h1></h1>');
-		$h1.id = $('game_over');
-		$h1.text = 'Game Over!';
-		$h1.css('color','yellow');
-		$(document.body).append($h1)[0];
-		console.log($h1);
+		const $div = $('<div></div>');
+		$div.append('<img id="game_over" src="GameOver.jpg"/>');
+		$div.css({display: 'center'});
+		$div.append($('.board'));
+		$(document.body).append($div);
 	}	
 }
 

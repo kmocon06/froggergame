@@ -7,6 +7,7 @@ body {
 
 #board {
 	background-color: white;
+	background: linear-gradient(#00FFFF 50%, #303030 50%);
 	width: 1190px;
 	height: 820px;
 	position: relative;
@@ -133,14 +134,14 @@ div.first_row_cars {
 #red_car {
 	width: 70px;
 	height: 58px;
-	top: 705px;
+	top: 708px;
 	position: absolute;
 }
 
 #red_car2 {
 	width: 70px;
 	height: 58px;
-	top: 705px;
+	top: 708px;
 	bottom: 0px;
 	right: -30px;
 	position: absolute;
@@ -157,11 +158,12 @@ div.first_row_cars {
 
 #level {
 	color: white;
+
 }
 
-
-#score {
+.level_score {
 	color: white;
+	font-size: 15px;
 }
 
 
