@@ -22,16 +22,19 @@ class Cars {
 }
 
 class Player {
-	constructor(player1, player2) {
-		this.player1 = player1;
-		this.player2 = player2;
+	constructor(player, score) {
+		this.player = player;
+		this.score = score;
 	}
 }
 
 
 const froggerGame = {
+	player1Turn: false,
+	player2Turn: false,
 	level: 1,
-	score:0,
+	player1Score:0,
+	player2Score: 0,
 	rounds: 0,
 	player1Lives: 3,
 	player2Lives: 3,
@@ -40,12 +43,22 @@ const froggerGame = {
 	leftPressed: false,
 	rightPressed: false,
 	isColliding: false,
-	isColliding: false,
 	timer: 0,
 	frog: $('#frog'),
+	frogStartingPosition: {top: 761.9965744018555,left: 600.0000406801701},
 	frogOnLog: false,
 	startGame() {
 
+		// const player1 = new Player(player1, 0);
+		// const player2 = new Player(player2, 0);
+		if(this.player1Turn === false) {
+			this.player1Turn = true;
+
+			if(this.player1Lives <= 0) {
+				this.player1Turn = false;
+				this.player2Turn = true;
+			}
+		}
 
 		this.moveFirstRedCars();
 		this.moveFirstGreenCars();
@@ -74,11 +87,12 @@ const froggerGame = {
 	moveCharacter(keyCode) {
 
 		let position = this.frog.position();
+		//console.log(position);
 		//const position = this.frog;
 		//move the character up, down, left, and right
 		//by using the keyCodes for the keyboard
-		const height = $(window).innerHeight();
-		const width = $(window).innerWidth();
+		// const height = $(window).innerHeight();
+		// const width = $(window).innerWidth();
 
 		switch(keyCode) {
 	 		case 87: //up - keycode 87 === W
@@ -86,8 +100,14 @@ const froggerGame = {
 	 				$('#frog').css('top', position.top - 50 + 'px');
 	 			}
 
-	 			this.score += 10;
-	 			this.printScore();
+	 			if(this.player1Turn === true) {
+	 				this.player1Score += 10;
+	 				this.printScore();
+	 			} else {
+	 				this.player2Score += 10;
+	 				this.printScore();
+	 			}
+
 	 			break;
 
 	 		case 83: //down - keyCode 83 === S
@@ -100,6 +120,14 @@ const froggerGame = {
 		 			$('#frog').css('top', position.top + 50 + 'px');
 	 			}
 
+	 			if(this.player1Turn === true) {
+	 				this.player1Score -= 10;
+	 				this.printScore();
+	 			} else {
+	 				this.player2Score -= 10;
+	 				this.printScore();
+	 			}
+
 	 			break;
 
 
@@ -108,7 +136,7 @@ const froggerGame = {
 	 				$('#frog').css('left', position.left - 50 + 'px');
 	 			}
 
-	 			break;
+	 			break; 
 
 	 		case 68: //right - keyCode 68 === D
 	 			if(position.left > -6 && position.left < 1105) {
@@ -235,7 +263,7 @@ const froggerGame = {
 		const frogWidth = this.frog.width();
 
 		const allCars = $('.car');
-		console.log(allCars);
+		// console.log(allCars);
 
 		for(let i = 0; i < allCars.length; i++) {
 			let currentCar = allCars[i];
@@ -293,12 +321,11 @@ const froggerGame = {
 		const log1Width = $('#log1').width();
 		const log1Height = $('#log1').height();
 
-		console.log($('#log1'))
+		// console.log($('#log1'))
 		// console.log(log1Speed);
 		let frog = this.frog.position(); //height = 58 //width = 70
 		const frogHeight = this.frog.height();
 		const frogWidth = this.frog.width();
-		console.log(this.frog);
 
 		// if(this.frogOnLog !== false) {
 		// 	this.frog.position().left += log1Speed;
@@ -320,8 +347,8 @@ const froggerGame = {
 
 		}
 
-		console.log('log', log1Position);
-		console.log('frog', frog);
+		// console.log('log', log1Position);
+		// console.log('frog', frog);
 
 	},
 	frogDies() {
@@ -332,13 +359,14 @@ const froggerGame = {
 		$(document.body).append($div);
 		this.lives--
 
-		if(this.lives === 0) {
+		if(this.lives <= 0) {
 			this.gameOver();
 		}
 	},
 	frogReset() {
-		const r = this.frog.position.left;
-		const s =this.frog.position.top;
+		// const r = this.frog.position.left;
+		// const s =this.frog.position.top;
+		let frog = this.frog.position({top: 761.9965744018555,left: 600.0000406801701});
 
 	},
 	levelCompleted() {
@@ -347,11 +375,17 @@ const froggerGame = {
 	printScore() {
 		//print the high score of the user onto the screen 
 		if(event.keyCode === 87) {
-			$('#score').text(this.score);
+			$('#score1').text(this.player1Score);
+			$('#score2').text(this.player2Score);
 		}
 	},
 	gameOver() {
-
+		const $h1 = $('<h1></h1>');
+		$h1.id = $('game_over');
+		$h1.text = 'Game Over!';
+		$h1.css({color: 'yellow', height: '60px', width: '60px'});
+		$(document.body).append($h1);
+		console.log($h1);
 	}	
 }
 
