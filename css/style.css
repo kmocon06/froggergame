@@ -14,10 +14,15 @@ body {
 
 }
 
+.logs_and_gator {
+	bottom: 0px;
+	position: relative;
+}
+
 #gator {
-	width: 50px;
-	height: 40px;
-	top: 50px;
+	width: 70px;
+	height: 58px;
+	top: 65px;
 	position: absolute;
 }
 

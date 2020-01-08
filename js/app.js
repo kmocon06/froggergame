@@ -6,29 +6,6 @@
 //completed that level
 
 
-
-
-
-// class Player {
-// 	constructor(level, score)
-// }
-
-class Cars {
-	constructor(image, position, height, width) {
-		this.position = position;
-		this.height = height;
-		this.width = width;
-	}
-}
-
-class Player {
-	constructor(player, score) {
-		this.player = player;
-		this.score = score;
-	}
-}
-
-
 const froggerGame = {
 	player1Turn: false,
 	player2Turn: false,
@@ -38,10 +15,6 @@ const froggerGame = {
 	rounds: 0,
 	player1Lives: 5,
 	player2Lives: 5,
-	// upPressed: false,
-	// downPressed: false,
-	// leftPressed: false,
-	// rightPressed: false,
 	isColliding: false,
 	timer: 0,
 	frog: $('#frog'),
@@ -68,17 +41,10 @@ const froggerGame = {
 				this.frogAttachesToLog();
 
 			}
-			//console.log(this.frog.position());
 			
 		}, 2500)
 	},
-	// setTimer() {
-
-
-	// 	const timer = setInterval(() =>{
-
-	// 	}, 2500)
-	// },
+	
 	switchPlayer() {
 
 		if(this.player1Lives <= 0) {
@@ -89,8 +55,7 @@ const froggerGame = {
 	moveCharacter(keyCode) {
 
 		let position = this.frog.position();
-
-		//console.log(position);
+		console.log(position);
 		//const position = this.frog;
 		//move the character up, down, left, and right
 		//by using the keyCodes for the keyboard
@@ -109,6 +74,10 @@ const froggerGame = {
 	 			} else {
 	 				this.player2Score += 10;
 	 				this.printScore();
+	 			}
+
+	 			if(position.top <= 39) {
+	 				this.frogReset();
 	 			}
 
 	 			break;
@@ -251,22 +220,11 @@ const froggerGame = {
 	carCollision() {
 		//if any cars or buses collide with the frog, then the frog has lost a life
 
-
-		// const redCar1 = new Cars($('#red_car'), 'absolute', 70, 58);
-		// console.log(redCar1);
-		// const car1 = $('#red_car').position();
-		//  //height = 50 //width = 40
-		// const car1Height = $('#red_car').height();
-		// const car1Width =$('#red_car').width();
-		// const car2 = $('#red_car2').position(); //height = 50 //width = 40
-		// const car2Height = $('#red_car2').height();
-		// const car2Width =$('#red_car2').width();
 		const frog = this.frog.position(); //height = 58 //width = 70
 		const frogHeight = this.frog.height();
 		const frogWidth = this.frog.width();
 
 		const allCars = $('.car');
-		// console.log(allCars);
 
 		for(let i = 0; i < allCars.length; i++) {
 			let currentCar = allCars[i];
@@ -292,64 +250,39 @@ const froggerGame = {
 		//and frog height, and the car top position plus the car height is greater than the frog
 		//top
 
-		// if (car1.left < frog.left + frogWidth &&
-  //  			car1.left + car1Width > frog.left &&
-  //  			car1.top < frog.top + frogHeight &&
-  //  			car1.top + car1Height > frog.top) {
-  //   	// collision detected!
-  //   		this.frogDies();
-  //   		this.frogReset();
-
-		// } else if (car2.left < frog.left + frogWidth &&
-  //  			car2.left + car2Width > frog.left &&
-  //  			car2.top < frog.top + frogHeight &&
-  //  			car2.top + car2Height > frog.top) {
-		// 		this.frogDies();
-		// 		this.frogReset();
-		// } 
-
-/*		else if (car2.left < frog.left + frogWidth &&
-   			car2.left + car2Width > frog.left &&
-   			car2.top < frog.top + frogHeight &&
-   			car2.top + car2Height > frog.top) {
-				this.frogDies();
-				this.frogReset();
-		}*/ 	
-
-		// console.log('RED CAR >>> ',car2);
-		// console.log('FROG >>',frog);
+		
 	},
 	frogAttachesToLog() {
-		//log speed = 9000 
-		const log1Position = $('#log1').position();
-		const log1Width = $('#log1').width();
-		const log1Height = $('#log1').height();
+		// //log speed = 9000 
+		// const log1Position = $('#log1').position();
+		// const log1Width = $('#log1').width();
+		// const log1Height = $('#log1').height();
 
-		// console.log($('#log1'))
-		// console.log(log1Speed);
-		let frog = this.frog.position(); //height = 58 //width = 70
-		const frogHeight = this.frog.height();
-		const frogWidth = this.frog.width();
+		// // console.log($('#log1'))
+		// // console.log(log1Speed);
+		// let frog = this.frog.position(); //height = 58 //width = 70
+		// const frogHeight = this.frog.height();
+		// const frogWidth = this.frog.width();
 
-		// if(this.frogOnLog !== false) {
-		// 	this.frog.position().left += log1Speed;
+		// // if(this.frogOnLog !== false) {
+		// // 	this.frog.position().left += log1Speed;
+		// // }
+
+		// if (log1Position.left < frog.left + frogWidth &&
+  //  			log1Position.left + log1Width > frog.left &&
+  //  			log1Position.top < frog.top + frogHeight &&
+  //  			log1Position.top + log1Height > frog.top) {
+  //   	// collision detected!
+  //   		this.frogOnLog = true;
+  //   		// this.frog.css({left: 0});
+		// // 	this.frog.animate({ left: '1000px' }, 9000, 'linear', () => {
+		// // });
+
+		// 	frog.left = log1Position.left;
+		// 	frog.top = log1Position.top;
+		// 	this.frog.css()
+
 		// }
-
-		if (log1Position.left < frog.left + frogWidth &&
-   			log1Position.left + log1Width > frog.left &&
-   			log1Position.top < frog.top + frogHeight &&
-   			log1Position.top + log1Height > frog.top) {
-    	// collision detected!
-    		this.frogOnLog = true;
-    		// this.frog.css({left: 0});
-		// 	this.frog.animate({ left: '1000px' }, 9000, 'linear', () => {
-		// });
-
-			frog.left = log1Position.left;
-			frog.top = log1Position.top;
-			this.frog.css()
-
-		}
 
 		// console.log('log', log1Position);
 		// console.log('frog', frog);
@@ -373,17 +306,10 @@ const froggerGame = {
 		}
 	},
 	frogReset() {
-		// console.log(this.frog.position())
-		// const r = this.frog.position.left;
-		// const s =this.frog.position.top;
-		// {top: 761.9965744018555,left: 600.0000406801701}
-		// $('#frog').css(position.top, 761.9965744018555);
-		// $('#frog').css(position.left, 600.0000406801701);
-		// $('#frog').css('top', position.top = 761.9965744018555);
+		//get the frog back to it's original starting position
 		let position = this.frog.position();
 		$('#frog').css('top', 761.9965744018555);
 		$('#frog').css('left', 600.0000406801701);
-
 
 	},
 	levelCompleted() {
@@ -409,33 +335,6 @@ const froggerGame = {
 
 froggerGame.startGame();
 
-	// keyDownHandler(event) {
-	// 	if(event.keyCode === 87) {
- //        	upPressed = true;
- //    	} else if(event.keyCode === 83) {
- //        	downPressed = true;
- //    	} 
-
-	// 	if(event.keyCode === 65) {
- //    		leftPressed = true;
- //    	} else if(event.keyCode === 68) {
- //    		rightPressed = true;
- //    	}
-	// },
-	// keyUpHandler(event) {
-	// 	if(event.keyCode === 87) {
- //        	upPressed = false;
- //    	} else if(event.keyCode === 83) {
- //        	downPressed = false;
- //    	} 
-
- //    	if(event.keyCode === 65) {
- //    		leftPressed = false;
- //    	} else if(event.keyCode === 68) {
- //    		rightPressed = false;
- //    	}
-	// },
-
 
 
 //EVENT LISTENERS 
@@ -444,8 +343,3 @@ $(document).on('keydown', (event) => {
 	froggerGame.moveCharacter(event.keyCode);
 });
 
-
-//$(document).keydown(froggerGame.keyDownHandler);
-//document.addEventListener('keyup', froggerGame.keyUpHandler(), false)
-
-//$(#frog).
