@@ -36,8 +36,8 @@ const froggerGame = {
 	player1Score:0,
 	player2Score: 0,
 	rounds: 0,
-	player1Lives: 3,
-	player2Lives: 3,
+	player1Lives: 5,
+	player2Lives: 5,
 	// upPressed: false,
 	// downPressed: false,
 	// leftPressed: false,
@@ -49,17 +49,9 @@ const froggerGame = {
 	frogOnLog: false,
 	startGame() {
 
+		this.player1Turn = true;
 		// const player1 = new Player(player1, 0);
 		// const player2 = new Player(player2, 0);
-		if(this.player1Turn === false) {
-			this.player1Turn = true;
-
-			if(this.player1Lives <= 0) {
-				this.player1Turn = false;
-				this.player2Turn = true;
-			}
-		}
-
 		this.moveFirstRedCars();
 		this.moveFirstGreenCars();
 		this.moveThirdRowCars();
@@ -84,6 +76,13 @@ const froggerGame = {
 
 	// 	}, 2500)
 	// },
+	switchPlayer() {
+
+		if(this.player1Lives <= 0) {
+			this.player1Turn = false;
+			this.player2Turn = true;
+		}
+	},
 	moveCharacter(keyCode) {
 
 		let position = this.frog.position();
@@ -101,7 +100,7 @@ const froggerGame = {
 	 				$('#frog').css('top', position.top - 50 + 'px');
 	 			}
 
-	 			if(this.player1Turn === true) {
+	 			if(this.player1Turn) {
 	 				this.player1Score += 10;
 	 				this.printScore();
 	 			} else {
@@ -121,7 +120,7 @@ const froggerGame = {
 		 			$('#frog').css('top', position.top + 50 + 'px');
 	 			}
 
-	 			if(this.player1Turn === true) {
+	 			if(this.player1Turn) {
 	 				this.player1Score -= 10;
 	 				this.printScore();
 	 			} else {
@@ -274,8 +273,12 @@ const froggerGame = {
    			currentCar.y < frog.top + frogHeight &&
    			currentCar.y+ currentCar.height > frog.top) {
     	// collision detected!
-    		this.frogDies();
-    		this.frogReset();
+    			this.frogDies();
+    			this.frogReset();
+
+    			if(this.player1Lives <= 0) {
+    				this.switchPlayer();
+    			}
 
 			}
 		}
@@ -358,9 +361,14 @@ const froggerGame = {
 		$div.append('<img id="dead_frog" src="SkullPixelart.png" />');
 		$div.css({display: 'inline-block'});
 		$(document.body).append($div);
-		this.player1Lives--
+		
+		if(this.player1Turn) {
+			this.player1Lives--;
+		} else {
+			this.player2Lives--;
+		}
 
-		if(this.player1Lives <= 0) {
+		if(this.player1Lives <= 0 && this.player2Lives <= 0) {
 			this.gameOver();
 		}
 	},
@@ -379,7 +387,8 @@ const froggerGame = {
 
 	},
 	levelCompleted() {
-
+		this.level++;
+		$('#level').text(this.level);
 	},
 	printScore() {
 		//print the high score of the user onto the screen 
