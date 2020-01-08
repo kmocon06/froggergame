@@ -150,7 +150,7 @@ const froggerGame = {
         });
         $('#green_car').animate({
             right: '1000px'
-        }, 5000, 'linear', () => {
+        }, 8000, 'linear', () => {
             this.moveFirstGreenCars();
         });
     },
