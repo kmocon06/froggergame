@@ -38,10 +38,10 @@ const froggerGame = {
 	rounds: 0,
 	player1Lives: 3,
 	player2Lives: 3,
-	upPressed: false,
-	downPressed: false,
-	leftPressed: false,
-	rightPressed: false,
+	// upPressed: false,
+	// downPressed: false,
+	// leftPressed: false,
+	// rightPressed: false,
 	isColliding: false,
 	timer: 0,
 	frog: $('#frog'),
@@ -87,6 +87,7 @@ const froggerGame = {
 	moveCharacter(keyCode) {
 
 		let position = this.frog.position();
+
 		//console.log(position);
 		//const position = this.frog;
 		//move the character up, down, left, and right
@@ -158,7 +159,7 @@ const froggerGame = {
 		});
 
 		$('#red_car2').css({left: '70px'});
-		$('#red_car2').animate({ left: '1000px' }, 16000, 'linear', () => {
+		$('#red_car2').animate({ left: '1000px' }, 9000, 'linear', () => {
 			this.moveFirstRedCars();
 		});
 	},
@@ -192,7 +193,7 @@ const froggerGame = {
 	},
 	moveBusRow() {
 		$('#bus').css({right: 0});
-		$('#bus').animate({ right: '1000px' }, 9000, 'linear', () => {
+		$('#bus').animate({ right: '1000px' }, 12000, 'linear', () => {
 			this.moveBusRow();
 		});
 
@@ -357,16 +358,24 @@ const froggerGame = {
 		$div.append('<img id="dead_frog" src="SkullPixelart.png" />');
 		$div.css({display: 'inline-block'});
 		$(document.body).append($div);
-		this.lives--
+		this.player1Lives--
 
-		if(this.lives <= 0) {
+		if(this.player1Lives <= 0) {
 			this.gameOver();
 		}
 	},
 	frogReset() {
+		// console.log(this.frog.position())
 		// const r = this.frog.position.left;
 		// const s =this.frog.position.top;
-		let frog = this.frog.position({top: 761.9965744018555,left: 600.0000406801701});
+		// {top: 761.9965744018555,left: 600.0000406801701}
+		// $('#frog').css(position.top, 761.9965744018555);
+		// $('#frog').css(position.left, 600.0000406801701);
+		// $('#frog').css('top', position.top = 761.9965744018555);
+		let position = this.frog.position();
+		$('#frog').css('top', 761.9965744018555);
+		$('#frog').css('left', 600.0000406801701);
+
 
 	},
 	levelCompleted() {
@@ -383,8 +392,8 @@ const froggerGame = {
 		const $h1 = $('<h1></h1>');
 		$h1.id = $('game_over');
 		$h1.text = 'Game Over!';
-		$h1.css({color: 'yellow', height: '60px', width: '60px'});
-		$(document.body).append($h1);
+		$h1.css('color','yellow');
+		$(document.body).append($h1)[0];
 		console.log($h1);
 	}	
 }

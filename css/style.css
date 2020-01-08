@@ -87,28 +87,28 @@ body {
 #red_car4 {
 	width: 70px;
 	height: 58px;
-	top: 550px;
+	top: 530px;
 	position: absolute;
 }
 
 #red_car3 {
 	width: 70px;
 	height: 58px;
-	top: 550px;
+	top: 530px;
 	position: absolute;
 }
 
 #green_car3 {
 	width: 70px;
 	height: 58px;
-	top: 600px;
+	top: 580px;
 	position: absolute;
 }
 
 #green_car2 {
 	width: 70px;
 	height: 58px;
-	top: 600px;
+	top: 580px;
 	position: absolute;
 }
 
@@ -120,7 +120,7 @@ div.second_row_cars {
 #green_car {
 	width: 70px;
 	height: 58px;
-	top: 650px;
+	top: 640px;
 	position: absolute;
 }
 
@@ -133,14 +133,14 @@ div.first_row_cars {
 #red_car {
 	width: 70px;
 	height: 58px;
-	top: 710px;
+	top: 705px;
 	position: absolute;
 }
 
 #red_car2 {
 	width: 70px;
 	height: 58px;
-	top: 710px;
+	top: 705px;
 	bottom: 0px;
 	right: -30px;
 	position: absolute;
