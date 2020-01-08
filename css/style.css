@@ -21,8 +21,8 @@ body {
 
 #gator {
 	width: 70px;
-	height: 58px;
-	top: 65px;
+	height: 65px;
+	top: 45px;
 	position: absolute;
 }
 
@@ -79,14 +79,14 @@ body {
 #bus {
 	width: 110px;
 	height: 58px;
-	top: 480px;
+	top: 450px;
 	position: absolute;
 }
 
 #bus2 {
 	width: 110px;
 	height: 58px;
-	top: 480px;
+	top: 450px;
 	position: absolute;
 }
 
@@ -139,14 +139,14 @@ div.first_row_cars {
 #red_car {
 	width: 70px;
 	height: 58px;
-	top: 708px;
+	top: 700px;
 	position: absolute;
 }
 
 #red_car2 {
 	width: 70px;
 	height: 58px;
-	top: 708px;
+	top: 700px;
 	bottom: 0px;
 	right: -30px;
 	position: absolute;

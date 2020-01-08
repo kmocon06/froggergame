@@ -59,7 +59,6 @@ const froggerGame = {
 
         let position = this.frog.position();
         console.log(position);
-        //const position = this.frog;
         //move the character up, down, left, and right
         //by using the keyCodes for the keyboard
         // const height = $(window).innerHeight();
@@ -300,6 +299,11 @@ const froggerGame = {
         for (let i = 0; i < allCars.length; i++) {
             let currentCar = allCars[i];
 
+        //if the first car left position is less than the frog left position plus the 
+        //frog width, and the car left position plus the car width is greater than the 
+        //frog left position, and the car top position is less than the frog top position 
+        //and frog height, and the car top position plus the car height is greater than the frog
+        //top
             if (currentCar.x < frog.left + frogWidth &&
                 currentCar.x + currentCar.width > frog.left &&
                 currentCar.y < frog.top + frogHeight &&
@@ -315,48 +319,9 @@ const froggerGame = {
             }
         }
 
-        //if the first car left position is less than the frog left position plus the 
-        //frog width, and the car left position plus the car width is greater than the 
-        //frog left position, and the car top position is less than the frog top position 
-        //and frog height, and the car top position plus the car height is greater than the frog
-        //top
 
 
-    },
-    frogAttachesToLog() {
-        // //log speed = 9000 
-        // const log1Position = $('#log1').position();
-        // const log1Width = $('#log1').width();
-        // const log1Height = $('#log1').height();
-
-        // // console.log($('#log1'))
-        // // console.log(log1Speed);
-        // let frog = this.frog.position(); //height = 58 //width = 70
-        // const frogHeight = this.frog.height();
-        // const frogWidth = this.frog.width();
-
-        // // if(this.frogOnLog !== false) {
-        // // 	this.frog.position().left += log1Speed;
-        // // }
-
-        // if (log1Position.left < frog.left + frogWidth &&
-        //  			log1Position.left + log1Width > frog.left &&
-        //  			log1Position.top < frog.top + frogHeight &&
-        //  			log1Position.top + log1Height > frog.top) {
-        //   	// collision detected!
-        //   		this.frogOnLog = true;
-        //   		// this.frog.css({left: 0});
-        // // 	this.frog.animate({ left: '1000px' }, 9000, 'linear', () => {
-        // // });
-
-        // 	frog.left = log1Position.left;
-        // 	frog.top = log1Position.top;
-        // 	this.frog.css()
-
-        // }
-
-        // console.log('log', log1Position);
-        // console.log('frog', frog);
+    },frogAttachesToLog() {
 
     },
     frogDies() {
@@ -386,6 +351,7 @@ const froggerGame = {
 
     },
     levelCompleted() {
+    	//after each level is complete then the level increases on the screen
         this.level++;
         $('#level').text(this.level);
     },
